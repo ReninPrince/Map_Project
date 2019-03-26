@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static "css/login.css" %}">
+    <script src="{% static "scripts/back.js" %}"></script>
+    <title>MAPS</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><a class="navbar-brand" href="{% url 'mpapp:Home' %}"><span class="glyphicon glyphicon-home"></span>  Home</a> </li>
+          <li><a class="navbar-link" href="{% url 'admin:index' %}"><span class="glyphicon glyphicon-user"></span>  Admin Page</a> </li>
+          <li><a class="navbar-link" href="{% url 'mpapp:questions' %}"><span class="glyphicon glyphicon-globe"></span>O/P else</a> </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div id="tr" class="jumbotron text-center">
+        <h1>Trying to know YOU!!</h1>
+      </div>
+     <center><p style="font-size:160%;font-family:courier;">Get your Favourite places PREDICTED using our ML ALGS</p><br>
+       <form class="form-horizontal"   method="POST" action="{% url 'mpapp:questions' %}">
+           {% csrf_token %}
+           <table>
+             {{ form.as_p }}
+           </table><br>
+           <div class="btn-group" role="group" aria-label="...">
+             <input type="submit" id="save"   class="btn btn-success"  formaction="" name="save" value="Submit"/>
+             <a href="{% url 'mpapp:Home' %}"><button type="button" class="btn btn-danger"   class="btn btn-danger">Back</button></a>
+           </div>
+        </form>
+     </center>
+    </div>
+  </body>
+</html>

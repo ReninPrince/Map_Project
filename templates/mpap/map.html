@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>MAPS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static "css/map.css" %}">
+    <script src="{% static "scripts/exmap.js" %}"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><a class="navbar-brand" href="{% url 'mpapp:Home' %}"><span class="glyphicon glyphicon-home"></span>  Home</a> </li>
+          <li><a class="navbar-link" href="{% url 'admin:index' %}"><span class="glyphicon glyphicon-user"></span>  Admin Page</a> </li>
+          <li>
+            <form class="navbar-form navbar-left"  method="GET" role="search">
+              {% csrf_token %}
+              <div class="form-group">
+                <input id="pac-input" name="paac-input" type="text" value="  ,{{ place }}">
+                <!-- <input type="text" name="first_name" id="first_name" value=""> -->
+                <!-- <button type="button" id="pac-input"   name="Submit">Search</button> -->
+                <!-- {{ form.search }} -->
+              </div>
+              <!-- <input id="submit" type="button" value="Search"> -->
+            </form>
+          </li>
+          <!-- <li><input id="address" type="textbox" value="Chennai"></li> -->
+          <!-- <li><input id="submit" type="button" value="Search"></li> -->
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a class="navbar-link" href="{% url 'mpapp:Home' %}"><span class="glyphicon glyphicon-triangle-left"></span>  Back</a> </li>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <h1>Press Enter to Search</h1>
+    <!-- <div id="floating-panel">
+      <h1>Predicted place for {{ name }} is {{ place }}! </h1>
+      <input id="address" type="textbox" value="Sydney, NSW">
+      <input id="submit" type="button" value="Geocode">
+    </div> -->
+
+    <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeRvanLdxx4G1hUzg-fiBL8BLJCAaD0-Y&libraries=places&callback=initAutocomplete" async defer></script>
+  </body>
+</html>

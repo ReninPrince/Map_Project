@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static "css/login.css" %}">
+    <script src="{% static "scripts/back.js" %}"></script>
+    <title>Output</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><a class="navbar-brand" href="{% url 'mpapp:Home' %}"><span class="glyphicon glyphicon-home"></span>  Home</a> </li>
+          <li><a class="navbar-link" href="{% url 'admin:index' %}"><span class="glyphicon glyphicon-user"></span>   Admin Page</a> </li>
+          <li><a class="navbar-link" href="#"><span class="glyphicon glyphicon-globe"></span>Something else</a> </li>
+        </ul>
+      </div>
+    </nav>
+    <div id="ch" class="container">
+      <h1>Predicted place for {{ name }} is {{ place }}! </h1>
+    </div>
+    <center>
+    <button type="button" onclick="goBack()" class="btn btn-info" id="bt" name="button">Back</button>
+    </center>
+  </body>
+</html>
