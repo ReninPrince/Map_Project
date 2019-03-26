@@ -1,0 +1,32 @@
+body{
+    background-image:url('../images/google-maps-3d-globe-mode.jpg');
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    display:  grid;
+}
+#tr{
+  /* opacity: 0.1; */
+
+  background:rgba(255,255,255, 0.3);
+}
+h1{
+  color: rgb(170, 181, 63);
+  font-weight: bolder;
+}
+@keyframes dropdowneffect{
+    0%{
+        transform: translateY(-1200px);
+        }
+    100%{
+        transform: translateY(30px);
+        }
+}
+
+.form-horizontal{
+    animation: dropdowneffect 1s forwards 0s ease-in;
+}
+#bt{
+
+}
