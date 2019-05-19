@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static "css/login.css" %}">
+    <title>MAPS</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><a class="navbar-brand" href="{% url 'mpapp:Home' %}"><span class="glyphicon glyphicon-home"></span>  Home</a> </li>
+          <li><a class="navbar-link" href="{% url 'admin:index' %}"><span class="glyphicon glyphicon-user"></span>  Admin Page</a> </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div id="tr" class="jumbotron text-center">
+        <h1>My Project on Maps!!</h1>
+        <center><p style="font-size:160%;font-family:courier;">Get your Favourite places PREDICTED using our ML ALGS</p><br>
+          <form class="form-horizontal"  method="POST"  >
+            {% csrf_token %}
+            <table>
+              {{ form2.as_p }}
+            </table><br>
+            <div class="btn-group" role="group" aria-label="...">
+              <input type="submit" id="save"   class="btn btn-success" name="save" value="Submit"/>
+            </div>
+          </form>
+        </center>
+      </div>
+    </div>
+  </body>
+</html>
